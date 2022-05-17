@@ -4,6 +4,7 @@ class Discussion < ApplicationRecord
   validates :name, presence: true
 
   has_many :posts, dependent: :destroy
+  belongs_to :category, counter_cache: true, touch: true
 
   accepts_nested_attributes_for :posts
 
